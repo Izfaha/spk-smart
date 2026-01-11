@@ -16,10 +16,10 @@
   
   <div class="flex justify-between items-center print:hidden">
     <h2 class="text-2xl font-bold text-slate-800">Laporan Akhir</h2>
-    <button on:click={printReport} class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-sm flex items-center gap-2 transition-colors">
+    <!-- <button on:click={printReport} class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-sm flex items-center gap-2 transition-colors">
       <Printer size={18} />
       <span>Cetak Laporan</span>
-    </button>
+    </button> -->
   </div>
 
   <div class="bg-white rounded-lg shadow-sm border border-slate-100 overflow-hidden print:shadow-none print:border-none print:w-full">

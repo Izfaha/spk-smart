@@ -58,10 +58,10 @@
 
   <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
     <h2 class="text-2xl font-bold text-slate-800">Data Alternatif</h2>
-    <button on:click={openAddModal} class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded shadow-sm flex items-center gap-2 transition-colors">
+    <!-- <button on:click={openAddModal} class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded shadow-sm flex items-center gap-2 transition-colors">
       <Plus size={18} />
       <span>Tambah Alternatif</span>
-    </button>
+    </button> -->
   </div>
 
   <div class="bg-white rounded shadow-sm border border-slate-200 overflow-hidden">

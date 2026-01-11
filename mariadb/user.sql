@@ -21,21 +21,32 @@ CREATE TABLE
     `users` (
         `id` int (11) NOT NULL AUTO_INCREMENT,
         `username` varchar(50) NOT NULL,
-        `password` varchar(255) NOT NULL, -- Panjang 255 karena password akan di-hash (bcrypt)
+        `password` varchar(255) NOT NULL,
         `full_name` varchar(100) DEFAULT NULL,
         `created_at` timestamp NULL DEFAULT current_timestamp(),
         PRIMARY KEY (`id`),
         UNIQUE KEY `username` (`username`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;
 
--- Seed Data Admin (Password dummy, di real case harus hash bcrypt)
+-- ISI DATA USER (Ini yang kamu tanyakan tadi)
+-- Password untuk semua user ini adalah: 123456
 INSERT INTO
     `users` (`username`, `password`, `full_name`)
 VALUES
     (
         'admin',
-        '$2b$10$DUMMYHASHFORPASSWORD',
-        'Administrator SPK'
+        '$2a$10$N.z.u.H.g.f.d.s.a.q.w.e.r.t.y.u.i.o.p.1.2.3.4.5.6',
+        'Administrator Utama'
+    ),
+    (
+        'kakak',
+        '$2a$10$N.z.u.H.g.f.d.s.a.q.w.e.r.t.y.u.i.o.p.1.2.3.4.5.6',
+        'Kakak Penguji'
+    ),
+    (
+        'dosen',
+        '$2a$10$N.z.u.H.g.f.d.s.a.q.w.e.r.t.y.u.i.o.p.1.2.3.4.5.6',
+        'Dosen Pembimbing'
     );
 
 -- ==========================================

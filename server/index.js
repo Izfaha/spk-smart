@@ -8,6 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Routes Import
+const authRoutes = require('./routes/authRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const alternatifRoutes = require('./routes/alternatifRoutes');
 const kriteriaRoutes = require('./routes/kriteriaRoutes');
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 });
 
 // API Routes
+app.use('/api/auth', authRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/alternatif', alternatifRoutes);
 app.use('/api/kriteria', kriteriaRoutes);
