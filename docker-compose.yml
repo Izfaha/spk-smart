@@ -1,0 +1,53 @@
+services:
+  svelte-app:
+    build: ./app-admin
+    container_name: svelte_app
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./app-admin:/app
+      - /app/node_modules
+    depends_on:
+      - api
+    command: ["npm", "run", "dev", "--", "--host"]
+
+
+  api:
+    build: ./server
+    container_name: api_server
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_HOST=mariadb
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_NAME=spk_smart
+    depends_on:
+      - mariadb
+
+
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb-svelte
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=spk_smart
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./mariadb/user.sql:/docker-entrypoint-initdb.d/user.sql
+
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_HOST=mariadb
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+
+volumes:
+  mariadb_data:
